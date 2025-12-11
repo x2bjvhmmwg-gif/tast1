@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 페이지</title>
     <style>
-        /* 전체 페이지 스타일 */
+
         body {
             display: flex;
             justify-content: center;
@@ -16,7 +16,7 @@
             background-color: #f0f2f5;
         }
 
-        /* 로그인 박스 스타일 */
+
         .login-container {
             background-color: #fff;
             padding: 40px;
@@ -31,7 +31,7 @@
             color: #333;
         }
 
-        /* 입력창 스타일 */
+
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -41,7 +41,7 @@
             box-sizing: border-box;
         }
 
-        /* 버튼 스타일 */
+
         button {
             width: 100%;
             padding: 10px;
@@ -70,21 +70,21 @@
     </div>
 
     <script>
-        // 로그인 함수
+   
         function login() {
-            // 입력값 가져오기
+          
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // 간단한 예제 로그인 조건 (username: admin, password: 1234)
+             (username: admin, password: 1234)
             if(username === "admin" && password === "1234") {
-                // 로그인 성공 시 경고 후 페이지 이동
+      
                 alert("로그인 성공!");
-                window.location.href = "welcome.html"; // 성공 페이지
+                window.location.href = "welcome.html"; 
             } else {
-                // 로그인 실패 시 다른 페이지로 이동
+            
                 alert("로그인 실패!");
-                window.location.href = "login-failed.html"; // 실패 페이지
+                window.location.href = "login-failed.html"; 
             }
         }
     </script>
