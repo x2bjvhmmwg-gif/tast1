@@ -2,126 +2,39 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모던 블로그</title>
-    <link rel="icon" href="../../images/logo.png"/>
+    <title>페이지 전환 예제</title>
     <style>
-        /* 전체 기본 스타일 */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
+        .page {
+            display: none; /* 기본적으로 숨김 */
         }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: #fff;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            margin: 0 15px;
-            padding: 8px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            background-color: #4CAF50;
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        main {
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: #fff;
-            padding: 25px 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        p {
-            line-height: 1.6;
-            color: #555;
-        }
-
-        ul#features {
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-
-        ul#features li {
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 180px;
-            padding: 12px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
-            resize: vertical;
+        .active {
+            display: block; /* active 클래스가 붙으면 표시 */
         }
     </style>
 </head>
 <body>
+    <!-- 페이지 1 -->
+    <div id="page1" class="page active">
+        <h1>여기는 페이지 1입니다</h1>
+        <button onclick="showPage('page2')">페이지 2로 이동</button>
+    </div>
 
-    <header>
-        <h1>모던 HTML 블로그</h1>
-    </header>
+    <!-- 페이지 2 -->
+    <div id="page2" class="page">
+        <h1>여기는 페이지 2입니다</h1>
+        <button onclick="showPage('page1')">페이지 1로 이동</button>
+    </div>
 
-    <nav>
-        <a href="page1.html">페이지 1</a>
-        <a href="page2.html">페이지 2</a>
-        <a href="page3.html">페이지 3</a>
-    </nav>
+    <script>
+        function showPage(pageId) {
+            // 모든 페이지 숨기기
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
 
-    <main>
-        <h2>HTML이란 무엇인가?</h2>
-        <p>
-            HTML(하이퍼텍스트 마크업 언어)은 웹페이지의 구조를 정의하는 언어입니다.
-            텍스트, 이미지, 링크 등 콘텐츠의 기본 뼈대를 만들고, CSS나 JavaScript와 함께 사용해
-            스타일과 상호작용을 구현할 수 있습니다.
-        </p>
-
-        <h2>HTML의 주요 특징</h2>
-        <ul id="features">
-            <li>HTML은 요소(element)와 태그(tag)를 사용하여 콘텐츠를 구조화합니다.</li>
-            <li>HTML5는 최신 버전으로 멀티미디어 및 시맨틱 요소를 지원합니다.</li>
-            <li>웹 개발의 기초로, 모든 웹 페이지는 HTML 기반으로 작성됩니다.</li>
-        </ul>
-
-        <h2>간단 메모</h2>
-        <textarea placeholder="이곳에 글을 작성할 수 있습니다."></textarea>
-    </main>
-
+            // 선택한 페이지만 보이기
+            const activePage = document.getElementById(pageId);
+            activePage.classList.add('active');
+        }
+    </script>
 </body>
 </html>
