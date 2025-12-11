@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>페이지 전환 예제</title>
+    <style>
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .li a {
+            cursor: pointer;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 메뉴 -->
+    <ol>
+        <li class="li">
+            <a href="page1.html" onclick="showPage(event, 'page1')">PAGE1</a>
+        </li>
+        <li class="li">
+            <a href="page2.html" onclick="showPage(event, 'page2')">PAGE2</a>
+        </li>
+    </ol>
+
+    <!-- 페이지 1 -->
+    <div id="page1" class="page active">
+        <h1>여기는 페이지 1입니다</h1>
+        <p>페이지 1 내용</p>
+    </div>
+
+    <!-- 페이지 2 -->
+    <div id="page2" class="page">
+        <h1>여기는 페이지 2입니다</h1>
+        <p>페이지 2 내용</p>
+    </div>
+
+    <script>
+        function showPage(event, pageId) {
+            event.preventDefault(); // 링크 기본 동작 막기
+
+            // 모든 페이지 숨기기
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // 선택한 페이지만 보이기
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
