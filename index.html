@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 & 회원가입</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        .toggle {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="loginBox">
+    <h2>로그인</h2>
+    <input type="text" placeholder="아이디" />
+    <input type="password" placeholder="비밀번호" />
+    <button class="btn">로그인</button>
+    <div class="toggle" onclick="showSignup()">회원가입 하러가기</div>
+</div>
+
+<div class="container" id="signupBox" style="display:none;">
+    <h2>회원가입</h2>
+    <input type="text" placeholder="아이디" />
+    <input type="email" placeholder="이메일" />
+    <input type="password" placeholder="비밀번호" />
+    <input type="password" placeholder="비밀번호 확인" />
+    <button class="btn">회원가입</button>
+    <div class="toggle" onclick="showLogin()">로그인 하러가기</div>
+</div>
+
+<script>
+    function showSignup() {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("signupBox").style.display = "block";
+    }
+
+    function showLogin() {
+        document.getElementById("signupBox").style.display = "none";
+        document.getElementById("loginBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
